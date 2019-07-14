@@ -23,3 +23,4 @@ networks:
 
 volumes:
   elasticsearch_data:
+    external: true
