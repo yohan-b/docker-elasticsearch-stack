@@ -1,0 +1,25 @@
+version: '2.1'
+
+services:
+
+  elasticsearch:
+    container_name: elasticsearch:$VERSION_ELASTICSEARCH
+    build: "https://git.scimetis.net/yohan/docker-elasticsearch.git"
+    environment:
+      - discovery.type=single-node
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    restart: always
+    expose:
+      - '9200'
+      - '9300'
+    networks:
+      - reverse-proxy
+    volumes:
+      - elasticsearch_data:/usr/share/elasticsearch/data
+
+networks:
+  reverse-proxy:
+    external: true
+
+volumes:
+  elasticsearch_data:
