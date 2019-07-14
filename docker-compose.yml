@@ -3,7 +3,8 @@ version: '2.1'
 services:
 
   elasticsearch:
-    container_name: elasticsearch:$VERSION_ELASTICSEARCH
+    image: elasticsearch:$VERSION_ELASTICSEARCH
+    container_name: elasticsearch
     build: "https://git.scimetis.net/yohan/docker-elasticsearch.git"
     environment:
       - discovery.type=single-node
