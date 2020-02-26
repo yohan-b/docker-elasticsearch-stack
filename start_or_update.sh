@@ -2,7 +2,7 @@
 # --force-recreate is used to recreate container when crontab file has changed
 source ~/openrc.sh
 INSTANCE=$(/home/yohan/env_py3/bin/openstack server show -c id --format value $(hostname))
-mkdir -p /mnt/volumes/elasticsearch_data
+sudo mkdir -p /mnt/volumes/elasticsearch_data
 if ! mountpoint -q /mnt/volumes/elasticsearch_data
 then
      VOLUME_ID=$(/home/yohan/env_py3/bin/openstack volume show elasticsearch_data -c id --format value)
